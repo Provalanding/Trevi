@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Vacanze</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: white;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .cta {
+      background: #22c55e;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: url('images/hero.jpg') center/cover no-repeat;
+      padding: 120px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      padding: 10px;
+    }
+
+    .card p {
+      padding: 0 10px 10px;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png">
+  <a class="cta" href="#form">Prenota ora</a>
+</header>
+
+<section class="hero">
+  <h1>La tua casa vacanze perfetta</h1>
+  <p>Relax, comfort e posizione ideale</p>
+  <a class="cta" href="#form">Verifica disponibilità</a>
+</section>
+
+<section class="section">
+  <h2>Le nostre case</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="images/casa1.jpg">
+      <h3>Appartamento Centro</h3>
+      <p>2-4 persone • WiFi • Aria condizionata</p>
+    </div>
+
+    <div class="card">
+      <img src="images/casa2.jpg">
+      <h3>Vista Mare</h3>
+      <p>Fronte mare • Terrazza • Parcheggio</p>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery">
+  <h2>Gallery</h2>
+  <div class="cards">
+    <img src="images/gallery1.jpg">
+    <img src="images/gallery2.jpg">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Recensioni</h2>
+  <p>⭐️⭐️⭐️⭐️⭐️ "Esperienza fantastica!"</p>
+  <p>⭐️⭐️⭐️⭐️⭐️ "Pulizia e posizione perfette"</p>
+</section>
+
+<section class="section" id="form">
+  <h2>Richiedi disponibilità</h2>
+
+  <form onsubmit="sendToWhatsApp(event)">
+    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="date" id="checkin" required>
+    <input type="date" id="checkout" required>
+    <button type="submit" class="cta">Invia richiesta</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Case Vacanze</p>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp" href="https://wa.me/39TUONUMERO" target="_blank">💬</a>
+
+<script>
+function sendToWhatsApp(e) {
+  e.preventDefault();
+
+  let nome = document.getElementById("nome").value;
+  let email = document.getElementById("email").value;
+  let checkin = document.getElementById("checkin").value;
+  let checkout = document.getElementById("checkout").value;
+
+  let message = `Richiesta prenotazione:%0A Nome: ${nome}%0A Email: ${email}%0A Check-in: ${checkin}%0A Check-out: ${checkout}`;
+
+  window.open(`https://wa.me/39TUONUMERO?text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
